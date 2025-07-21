@@ -1,5 +1,5 @@
 include ':app'
-include ':kyc-vn-sdk'
-project(':kyc-vn-sdk').projectDir = new File(rootDir, 'kyc-vn-sdk/')
+include ':kyc-en-sdk'
+project(':kyc-en-sdk').projectDir = new File(rootDir, 'kyc-en-sdk/')
 include ':collection-sdk-3.11.0'
 

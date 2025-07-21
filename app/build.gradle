@@ -100,8 +100,7 @@ android {
 
     namespace 'com.example.vnkycsdk'
 }
-
 dependencies {
-
-    implementation project(':kyc-vn-sdk')
+    implementation project(':kyc-en-sdk')
 }
+
