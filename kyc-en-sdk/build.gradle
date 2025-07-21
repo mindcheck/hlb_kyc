@@ -54,6 +54,12 @@ android {
         manifestPlaceholders = [appLabel: "@string/app_name"]
     }
 
+    publishing {
+        singleVariant('release') {
+            withSourcesJar()
+            withJavadocJar()
+        }
+    }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_11
@@ -196,8 +202,20 @@ dependencies {
     api 'androidx.work:work-runtime:2.10.2'
     api 'androidx.work:work-runtime-ktx:2.10.2'
 
-
-
 }
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                // The rest of your POM configuration is not strictly needed for JitPack
+                // but is good practice for Maven Central.
+            }
+        }
+    }
+}
+
+
 
 
