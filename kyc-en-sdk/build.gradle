@@ -19,6 +19,18 @@ repositories {
     mavenLocal()
 }
 
+configurations.all {
+    resolutionStrategy {
+        eachDependency {
+            if (requested.group == 'com.google.guava') {
+                if (requested.name.endsWith('-android')) {
+                    useTarget 'com.google.guava:' + requested.name.substring(0, requested.name.length() - '-android'.length())
+                }
+            }
+        }
+    }
+}
+
 android {
 
     defaultConfig {
