@@ -1,0 +1,5 @@
+include ':app'
+include ':kyc-vn-sdk'
+project(':kyc-vn-sdk').projectDir = new File(rootDir, 'kyc-vn-sdk/')
+include ':collection-sdk-3.11.0'
+

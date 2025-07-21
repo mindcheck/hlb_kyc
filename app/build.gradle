@@ -1,0 +1,107 @@
+
+
+def VERSION_CODE = project.hasProperty('VERSION_CODE') ? VERSION_CODE as Integer : 7
+//def versionPatch = VERSION_CODE
+//def appVersionCode = VERSION_CODE
+
+apply plugin: 'com.android.application'
+
+
+
+repositories {
+
+
+    maven {
+        url 'https://dl.bintray.com/xojan/maven/'
+    }
+    maven { url 'https://artifacts.netcore.co.in/artifactory/android' }
+    mavenCentral()
+    google()
+    maven { url 'https://dl.bintray.com/xojan/maven/' }
+    maven { url "https://repo.grails.org/grails/core/" }
+    maven { url 'https://mvnrepository.com' }
+    maven { url 'https://repo1.maven.org/maven2/' }
+    mavenLocal()
+}
+
+android {
+    signingConfigs {
+        release {
+
+        }
+
+        defaultConfig {
+
+        }
+    }
+    lintOptions {
+        checkReleaseBuilds false
+    }
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    dataBinding {
+        enabled = true
+    }
+    buildFeatures {
+        viewBinding true
+        buildConfig true
+    }
+    defaultConfig {
+        applicationId "com.example.vnkycsdk"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+
+//        versionCode 162
+//        versionName "2.1.9"
+
+        versionCode 938
+        versionName "1.4.538" // 2.1.9 (162)
+
+
+        vectorDrawables {
+            useSupportLibrary true
+        }
+
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        renderscriptTargetApi 18
+        renderscriptSupportModeEnabled true
+        multiDexEnabled true
+        signingConfig signingConfigs.defaultConfig
+        manifestPlaceholders = [appLabel: "@string/app_name"]
+
+
+
+    }
+    buildTypes {
+        release {
+
+        }
+
+        debug {
+
+        }
+        sit {
+
+        }
+
+        uat {
+
+        }
+
+    }
+
+    productFlavors {
+
+    }
+//    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    namespace 'com.example.vnkycsdk'
+}
+
+dependencies {
+
+    implementation project(':kyc-vn-sdk')
+}
