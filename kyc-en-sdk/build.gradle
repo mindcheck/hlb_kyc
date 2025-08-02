@@ -33,17 +33,7 @@ repositories {
     mavenLocal()
 }
 
-configurations.all {
-    resolutionStrategy {
-        eachDependency {
-            if (requested.group == 'com.google.guava') {
-                if (requested.name.endsWith('-android')) {
-                    useTarget 'com.google.guava:' + requested.name.substring(0, requested.name.length() - '-android'.length())
-                }
-            }
-        }
-    }
-}
+
 
 android {
 
@@ -86,83 +76,82 @@ android {
 
 dependencies {
 
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    api 'androidx.constraintlayout:constraintlayout:2.0.0'
-    api 'com.google.android.material:material:1.1.0'
-    api 'androidx.legacy:legacy-support-v4:1.0.0'
-    api 'androidx.appcompat:appcompat:1.7.1'
-    api 'androidx.viewpager2:viewpager2:1.0.0'
-    api 'androidx.navigation:navigation-fragment-ktx:2.3.5'
-    api 'androidx.navigation:navigation-ui-ktx:2.3.5'
-//    api 'com.google.firebase:firebase-crashlytics-buildtools:3.0.3'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0'
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.7.1'
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
+//    implementation 'com.google.firebase:firebase-crashlytics-buildtools:3.0.3'
 
     //cardview
-    api 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
 
     //tac edittext
-    api 'com.alimuzaffar.lib:pinentryedittext:1.3.1'
+    implementation 'com.alimuzaffar.lib:pinentryedittext:1.3.1'
 
     //retrofit
-    api 'com.squareup.retrofit2:retrofit:2.6.2'
-    api 'com.google.code.gson:gson:2.8.5'
-    api 'com.squareup.retrofit2:converter-gson:2.9.0'
-    api 'com.squareup.okhttp3:logging-interceptor:4.9.0'
-    api 'com.squareup.okhttp3:okhttp:4.9.0'
-    api "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
-    api 'com.kaopiz:kprogresshud:1.1.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.6.2'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.0'
+    implementation "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
+    implementation 'com.kaopiz:kprogresshud:1.1.0'
     annotationProcessor "com.jakewharton:butterknife-compiler:${rootProject.ext.butterknifeVersion}"
 
     // RecyclerView
-    api 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
 
     //Ted permission
-//    api "gun0912.ted:tedpermission:$rootProject.ext.tedPermissionVersion"
-    api 'androidx.multidex:multidex:2.0.1'
-    api 'com.intuit.sdp:sdp-android:1.0.6'
-    api 'com.fivehundredpx:blurringview:1.0.0'
-    api 'com.github.JakeWharton:ViewPagerIndicator:2.4.1'
-    api 'me.relex:circleindicator:2.1.6'
-    api "org.jetbrains.kotlin:kotlin-stdlib:$rootProject.ext.kotlin_version"
-    api "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$rootProject.ext.kotlin_version"
-    api 'com.wang.avi:library:2.1.3'
-    api 'me.everything:overscroll-decor-android:1.0.4'
-    api "com.github.ksoichiro:android-observablescrollview:${SYNCED_VERSION_NAME}"
-    api "org.greenrobot:eventbus:$rootProject.ext.eventBusVersion"
+//    implementation "gun0912.ted:tedpermission:$rootProject.ext.tedPermissionVersion"
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'com.fivehundredpx:blurringview:1.0.0'
+    implementation 'com.github.JakeWharton:ViewPagerIndicator:2.4.1'
+    implementation 'me.relex:circleindicator:2.1.6'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$rootProject.ext.kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$rootProject.ext.kotlin_version"
+    implementation 'com.wang.avi:library:2.1.3'
+    implementation 'me.everything:overscroll-decor-android:1.0.4'
+    implementation "com.github.ksoichiro:android-observablescrollview:${SYNCED_VERSION_NAME}"
+    implementation "org.greenrobot:eventbus:$rootProject.ext.eventBusVersion"
     // parallax recycler view
-//    api 'com.dinuscxj:pullzoomrecyclerview:1.0.4'
-    api 'com.github.ybq:Android-SpinKit:1.2.0'
+//    implementation 'com.dinuscxj:pullzoomrecyclerview:1.0.4'
+    implementation 'com.github.ybq:Android-SpinKit:1.2.0'
 
-    api "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxAndroidVersion"
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxAndroidVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknifeVersion"
-    api "com.fasterxml.jackson.core:jackson-core:$rootProject.ext.jaksonVersion"
-    api "com.fasterxml.jackson.core:jackson-annotations:$rootProject.ext.jaksonVersion"
-    api "com.fasterxml.jackson.core:jackson-databind:$rootProject.ext.jaksonVersion"
-    api 'com.github.osamaaftab:TSnackBar:-SNAPSHOT'
-    api 'com.google.dagger:dagger:2.21'
+    implementation "com.fasterxml.jackson.core:jackson-core:$rootProject.ext.jaksonVersion"
+    implementation "com.fasterxml.jackson.core:jackson-annotations:$rootProject.ext.jaksonVersion"
+    implementation "com.fasterxml.jackson.core:jackson-databind:$rootProject.ext.jaksonVersion"
+    implementation 'com.github.osamaaftab:TSnackBar:-SNAPSHOT'
+    implementation 'com.google.dagger:dagger:2.21'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.21'
-    api 'com.google.dagger:dagger-android-support:2.21'
+    implementation 'com.google.dagger:dagger-android-support:2.21'
 
     // if you use the support libraries
     testAnnotationProcessor "com.google.dagger:dagger-compiler:2.21"
     androidTestAnnotationProcessor "com.google.dagger:dagger-compiler:2.21"
-    api "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxAndroidVersion"
-    api 'org.aspectj:aspectjtools:1.6.2'
-    api 'com.github.bumptech.glide:glide:4.10.0'
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxAndroidVersion"
+    implementation 'org.aspectj:aspectjtools:1.6.2'
+    implementation 'com.github.bumptech.glide:glide:4.10.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
-    api("com.github.bumptech.glide:okhttp3-integration:4.2.0") {
+    implementation("com.github.bumptech.glide:okhttp3-integration:4.2.0") {
         exclude group: 'glide-parent'
     }
 
-    api 'id.zelory:compressor:2.1.1'
-    api 'com.intuit.ssp:ssp-android:1.0.6'
-    api 'com.wdullaer:materialdatetimepicker:3.6.4'
-    api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.1'
-    api 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.1'
-    api 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.0'
+    implementation 'id.zelory:compressor:2.1.1'
+    implementation 'com.intuit.ssp:ssp-android:1.0.6'
+    implementation 'com.wdullaer:materialdatetimepicker:3.6.4'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.1'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.1'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.0'
 
     //Fotoapparat
-    api 'io.fotoapparat:fotoapparat:2.6.1'
-    api 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+    implementation 'io.fotoapparat:fotoapparat:2.6.1'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
 
 
     def camera_version = "1.2.2"//keep this version
@@ -171,46 +160,46 @@ dependencies {
     implementation "androidx.camera:camera-lifecycle:$camera_version"
     implementation "androidx.camera:camera-view:$camera_version"
     implementation "org.jetbrains.kotlin:kotlin-reflect:$rootProject.ext.kotlin_version"
-    api "com.getkeepsafe.relinker:relinker:1.4.4"
-    api 'androidx.work:work-runtime-ktx:2.7.1' // to avoid crash on Android 12 api 31
-    api 'com.otaliastudios:cameraview:2.7.2' // if trueid sdk can update with updated camerax library we can use camerax for qr scanner
-    api "androidx.security:security-crypto:1.0.0"
+    implementation "com.getkeepsafe.relinker:relinker:1.4.4"
+    implementation 'androidx.work:work-runtime-ktx:2.7.1' // to avoid crash on Android 12 implementation 31
+    implementation 'com.otaliastudios:cameraview:2.7.2' // if trueid sdk can update with updated camerax library we can use camerax for qr scanner
+    implementation "androidx.security:security-crypto:1.0.0"
     //facebook events
-    api 'com.facebook.android:facebook-android-sdk:5.15.3'
-    api 'com.facebook.android:facebook-core:5.15.3'
-    api 'com.facebook.android:facebook-marketing:4.42.0'
+    implementation 'com.facebook.android:facebook-android-sdk:5.15.3'
+    implementation 'com.facebook.android:facebook-core:5.15.3'
+    implementation 'com.facebook.android:facebook-marketing:4.42.0'
 
     // Face features
     implementation 'com.google.mlkit:face-detection:16.1.7'
     //NFC
-    api 'com.google.mlkit:text-recognition:16.0.1'
-    api("org.jmrtd:jmrtd:0.7.25") {
+    implementation 'com.google.mlkit:text-recognition:16.0.1'
+    implementation("org.jmrtd:jmrtd:0.7.25") {
         exclude group: 'org.bouncycastle', module: 'bcprov-jdk15on'
     }
-    api 'com.github.mhshams:jnbis:1.1.0'
-    api 'com.github.amcs99:card-reader-lite:1.0.1'
-    api 'pl.droidsonroids.gif:android-gif-drawable:1.2.27'
+    implementation 'com.github.mhshams:jnbis:1.1.0'
+    implementation 'com.github.amcs99:card-reader-lite:1.0.1'
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.27'
 
-    api 'com.github.devsideal:VectorChildFinder:1.0.0'
-    api "org.apache.commons:commons-io:+"
-    api "com.jakewharton.timber:timber:5.0.1"
-    api "androidx.fragment:fragment-ktx:1.7.1"
-    api "androidx.activity:activity-ktx:1.9.0"
-    api 'de.hdodenhof:circleimageview:3.0.1'
-    api 'com.android.support.constraint:constraint-layout:1.1.3'
-    api 'androidx.core:core-ktx:1.13.1'
-    api 'androidx.annotation:annotation:1.9.1'
-    api 'com.github.joshjdevl.libsodiumjni:libsodium-jni-aar:2.0.1'
-    api "com.github.tanoDxyz:GDownload:1.1"
-    api 'androidx.work:work-runtime:2.10.2'
-    api 'androidx.work:work-runtime-ktx:2.10.2'
+    implementation 'com.github.devsideal:VectorChildFinder:1.0.0'
+    implementation "org.apache.commons:commons-io:+"
+    implementation "com.jakewharton.timber:timber:5.0.1"
+    implementation "androidx.fragment:fragment-ktx:1.7.1"
+    implementation "androidx.activity:activity-ktx:1.9.0"
+    implementation 'de.hdodenhof:circleimageview:3.0.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'androidx.core:core-ktx:1.13.1'
+    implementation 'androidx.annotation:annotation:1.9.1'
+    implementation 'com.github.joshjdevl.libsodiumjni:libsodium-jni-aar:2.0.1'
+    implementation "com.github.tanoDxyz:GDownload:1.1"
+    implementation 'androidx.work:work-runtime:2.10.2'
+    implementation 'androidx.work:work-runtime-ktx:2.10.2'
 
     // Nudge
-    api "com.netcore.android:smartech-sdk:3.4.2"
-    api "com.netcore.android:smartech-nudges:10.1.1"
-    api "com.github.tanoDxyz:GDownload:1.1"
-    api 'androidx.work:work-runtime:2.10.2'
-    api 'androidx.work:work-runtime-ktx:2.10.2'
+    implementation "com.netcore.android:smartech-sdk:3.4.2"
+    implementation "com.netcore.android:smartech-nudges:10.1.1"
+    implementation "com.github.tanoDxyz:GDownload:1.1"
+    implementation 'androidx.work:work-runtime:2.10.2'
+    implementation 'androidx.work:work-runtime-ktx:2.10.2'
 
 }
 
