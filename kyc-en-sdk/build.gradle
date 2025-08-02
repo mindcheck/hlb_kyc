@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-parcelize'
-apply plugin: 'maven-publish'
+//apply plugin: 'maven-publish'
 
 tasks.withType(JavaCompile).configureEach {
     options.fork = true
@@ -215,18 +215,18 @@ dependencies {
 
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                from components.release
-                // The rest of your POM configuration is not strictly needed for JitPack
-                // but is good practice for Maven Central.
-            }
-        }
-    }
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            release(MavenPublication) {
+//                from components.release
+//                // The rest of your POM configuration is not strictly needed for JitPack
+//                // but is good practice for Maven Central.
+//            }
+//        }
+//    }
 
-}
+//}
 
 
 
