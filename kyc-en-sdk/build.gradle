@@ -184,7 +184,6 @@ dependencies {
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.27'
 
     implementation 'com.github.devsideal:VectorChildFinder:1.0.0'
-    implementation "org.apache.commons:commons-io:+"
     implementation "com.jakewharton.timber:timber:5.0.1"
     implementation "androidx.fragment:fragment-ktx:1.7.1"
     implementation "androidx.activity:activity-ktx:1.9.0"
