@@ -199,7 +199,7 @@ dependencies {
     implementation "com.github.tanoDxyz:GDownload:1.1"
     implementation 'androidx.work:work-runtime:2.10.2'
     implementation 'androidx.work:work-runtime-ktx:2.10.2'
-
+    implementation 'com.google.android.gms:play-services-safetynet:18.0.1'
 }
 
 afterEvaluate {
