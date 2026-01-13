@@ -24,6 +24,8 @@ repositories {
     mavenLocal()
 }
 
+
+
 android {
     signingConfigs {
         release {
@@ -94,13 +96,21 @@ android {
     }
 //    buildToolsVersion rootProject.ext.buildToolsVersion
     compileOptions {
+        coreLibraryDesugaringEnabled true
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+
     }
 
     namespace 'com.example.vnkycsdk'
 }
 dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.7.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.4'
     implementation project(':kyc-en-sdk')
+
+
 }
 
