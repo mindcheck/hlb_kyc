@@ -126,7 +126,7 @@ dependencies {
     implementation "com.fasterxml.jackson.core:jackson-core:$rootProject.ext.jaksonVersion"
     implementation "com.fasterxml.jackson.core:jackson-annotations:$rootProject.ext.jaksonVersion"
     implementation "com.fasterxml.jackson.core:jackson-databind:$rootProject.ext.jaksonVersion"
-    implementation 'com.github.osamaaftab:TSnackBar:-SNAPSHOT'
+    implementation 'com.github.Redman1037:TSnackBar:V2.0.0'
     implementation 'com.google.dagger:dagger:2.21'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.21'
     implementation 'com.google.dagger:dagger-android-support:2.21'
