@@ -205,8 +205,8 @@ dependencies {
     implementation 'org.apache.commons:commons-text:1.14.0'
     implementation 'com.github.yalantis:ucrop:2.2.11'
 
-//    implementation 'com.hlb.kyc.app:libsodium-jni:2.0.2'
-    implementation files('libs/libsodium-jni-release.aar')
+    implementation 'com.hlb.kyc.app:libsodium-jni:2.0.2'
+//    implementation files('libs/libsodium-jni-release.aar')
 }
 
 afterEvaluate {
@@ -218,13 +218,13 @@ afterEvaluate {
                 // but is good practice for Maven Central.
             }
 
-//            libsodium(MavenPublication) {
-//                groupId = 'com.hlb.kyc.app' // Or whatever groupId you want
-//                artifactId = 'libsodium-jni' // The name of your library
-//                version = '2.0.2' // The version number
-//
-//                artifact("$projectDir/libs/libsodium-jni-release.aar")
-//            }
+            libsodium(MavenPublication) {
+                groupId = 'com.hlb.kyc.app' // Or whatever groupId you want
+                artifactId = 'libsodium-jni' // The name of your library
+                version = '2.0.2' // The version number
+
+                artifact("$projectDir/libs/libsodium-jni-release.aar")
+            }
         }
     }
 
