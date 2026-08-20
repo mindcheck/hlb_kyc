@@ -8,7 +8,9 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
+import com.hlb.kyc.app.utils.applySystemBarInsets
 
 open class MainTestActivity: AppCompatActivity() {
 
@@ -45,6 +47,10 @@ open class MainTestActivity: AppCompatActivity() {
         println("onCreate from base activity")
         println("onCreate Activity: ${this::class.simpleName}")
 
+        applySystemBarInsets(this)
+
+        onBackPressedDispatcher.addCallback(this, backPressedCallback)
+
         setWillDisplayMask(true)
 
     }
@@ -55,19 +61,23 @@ open class MainTestActivity: AppCompatActivity() {
     }
 
 
-    @Deprecated("Deprecated in Java")
-    override fun onBackPressed() {
+    private val backPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
 
-        setWillDisplayMask(false)
+            setWillDisplayMask(false)
 
-        // Back press exit mask
-        val tasks = (getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager).appTasks
-        if (tasks[0].taskInfo.numActivities == 1) {
-            setWillDisplayMask(true)
+            // Back press exit mask
+            val tasks = (getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager).appTasks
+            if (tasks[0].taskInfo.numActivities == 1) {
+                setWillDisplayMask(true)
+            }
+
+            isEnabled = false
+            onBackPressedDispatcher.onBackPressed()
+            isEnabled = true
+
         }
-        super.onBackPressed()
-
-    } // onBackPressed
+    } // backPressedCallback
 
     private fun isTablet(): Boolean {
         if (Build.MODEL.equals("J9210", ignoreCase = true)) {
